@@ -26,8 +26,3 @@ body {
     rgb(var(--background-start-rgb));
 }
 
-nav a {
-  font-weight: bold;
-  margin: 0 0.5rem;
-  text-decoration: underline;
-}
