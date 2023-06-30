@@ -17,11 +17,11 @@ export default function NavBar(){
             </Link>
             
             <SearchBar value={search} onChange={handleSearchChange} />
-            <Link className={styles.linkSec} href="/notes">
+            {/* <Link className={styles.linkSec} href="/notes">
               Add Stock
-            </Link>
-            <Link className={styles.linkSec} href="/notes">
-              Login
+            </Link> */}
+            <Link className={styles.linkSec} href="/">
+              Login/Sign Up
             </Link>
             
           </nav>

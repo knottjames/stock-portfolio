@@ -1,25 +1,43 @@
-import React, { ChangeEvent, FC } from 'react';
+import React, { ChangeEvent, FC, FormEvent, useState } from 'react';
 import TextField from '@mui/material/TextField';
+import SearchIcon from "@mui/icons-material/Search";
 import styles from './SearchBar.module.css';
-interface SearchBarProps {
-  value: string;
-  onChange: (event: ChangeEvent<HTMLInputElement>) => void;
-}
+import { IconButton } from '@mui/material';
+import { useRouter } from 'next/navigation';
 
-const SearchBar: FC<SearchBarProps> = ({ value, onChange }) => {
+
+const SearchBar: FC = () => {
+  const [value, setValue] = useState(''); // Add local state for 'value'
+ 
+  const router = useRouter();
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    router.push(`/search/?query=${value}`);
+    setValue(''); // Reset the search bar value after form submission
+  };
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+    setValue(event.target.value); // Update 'value' when the user types into the search bar
+  };
   return (
-    <TextField fullWidth 
-      label="Search"
-      variant="outlined"
-      color ="primary"
-      //placeholder="Search"
-      focused
-      value={value}
-      onChange={onChange}
-      InputProps={{
-        style: { color: 'white' }, // replace #ff0000 with the color you want
-      }}
-    />
+    <form className={styles.form} onSubmit={handleSubmit}>
+      <TextField
+        fullWidth 
+        label="Search"
+        variant="outlined"
+        focused
+        value={value}
+        onChange={handleChange}
+        InputProps={{
+          style: { color: 'white' }, // replace #ff0000 with the color you want
+        }}
+      />
+      {/* <Button className={styles.button} variant="outlined" color="primary" type="submit">
+        Submit
+      </Button> */}
+       <IconButton type="submit" aria-label="search">
+      <SearchIcon style={{ fill: "#4d94ff" }} />
+    </IconButton>
+    </form>
   );
 };
 

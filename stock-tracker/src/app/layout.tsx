@@ -1,9 +1,10 @@
 import './globals.css'
-import { Inter } from 'next/font/google'
+import {  Urbanist } from 'next/font/google'
 import NavBar from './components/NavBar';
 
 
-const inter = Inter({ subsets: ['latin'] })
+const manrope = Urbanist({ subsets: ['latin'],
+ })
 
 export const metadata = {
   title: 'Portfolio Tracker',
@@ -18,7 +19,7 @@ export default function RootLayout({
   return (
     <html lang="en">
        <body>
-        <main>
+        <main className={manrope.className}>
           <NavBar/>
           {children}
         </main>
