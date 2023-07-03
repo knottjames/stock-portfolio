@@ -3,7 +3,7 @@ import TextField from '@mui/material/TextField';
 import SearchIcon from "@mui/icons-material/Search";
 import styles from './SearchBar.module.css';
 import { IconButton } from '@mui/material';
-import { useRouter } from 'next/router'; // the import should be from 'next/router' not 'next/navigation'
+import { useRouter } from 'next/navigation'; 
 
 
 type SearchBarProps = {
@@ -32,7 +32,7 @@ const SearchBar: FC<SearchBarProps> = ({ value, onChange }) => {
         }}
       />
        <IconButton type="submit" aria-label="search">
-      <SearchIcon style={{ fill: "#4d94ff" }} />
+      <SearchIcon className= {styles.searchIcon} />
     </IconButton>
     </form>
   );
