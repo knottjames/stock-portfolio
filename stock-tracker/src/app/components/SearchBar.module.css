@@ -7,8 +7,12 @@
 }
 
 .searchIcon {
-  
   margin-left: 10px;
-  fill: "#4d94ff" ;
+  fill: #00ffbb ;
+  font-size: 30px;
 }
+.textField{
+  border-color: #4d94ff ;
+}
+
   

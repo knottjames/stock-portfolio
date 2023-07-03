@@ -56,7 +56,7 @@ export default function SearchPage() {
                 {showFullSummary ? data.summaryProfile.longBusinessSummary : data.summaryProfile.longBusinessSummary.substring(0, 200)}
                
             </h2>
-            <button style={{color: "#4d94ff"}} onClick={handleShowMoreClick}>{showFullSummary ? "Show Less" : "Show More"}</button>
+            <button style={{color: "#00ffbb"}} onClick={handleShowMoreClick}>{showFullSummary ? "Show Less" : "Show More"}</button>
         </header>
 
     </div>
