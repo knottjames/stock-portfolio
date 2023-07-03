@@ -30,7 +30,7 @@ const SearchBar: FC<SearchBarProps> = ({ value, onChange }) => {
 
         <TextField className={styles.textField}
           fullWidth
-          label="Search"
+          label="Search Ticker"
           variant="outlined"
           focused
           value={value}

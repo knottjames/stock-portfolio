@@ -20,7 +20,7 @@ export default function NavBar(){
             {/* <Link className={styles.linkSec} href="/notes">
               Add Stock
             </Link> */}
-            <Link className={styles.linkSec} href="/">
+            <Link className={styles.linkSec} href="/signup">
               Login/Sign Up
             </Link>
             
