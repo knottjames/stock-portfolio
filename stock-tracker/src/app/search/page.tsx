@@ -8,6 +8,11 @@ export default function SearchPage() {
     const ticker = searchParams.get('query');
     const [data, setData] = useState<any>(null);
     const [loading, setLoading] = useState(true);
+    const [showFullSummary, setShowFullSummary] = useState(false);
+
+    const handleShowMoreClick = () => {
+        setShowFullSummary(!showFullSummary);
+    };
     useEffect(() => {
 
         const fetchData = async () => {
@@ -39,14 +44,19 @@ export default function SearchPage() {
 
     return <div className="container mx-auto">
         <header className={styles.header}>
-           
-                <h1 className= {styles.h1}>{data.quoteType.longName} ({data.quoteType.symbol}) <br/>
-                Current Price: ${data.price.regularMarketPrice.raw} Previous Close: ${data.price.regularMarketPreviousClose.raw} <span className={changeClass}>{(data.price.regularMarketChangePercent.raw * 100).toFixed(2)}% </span><br/>
-                P.E. = <br/>
-                Div. Yield {data.summaryDetail.dividendYield.fmt}<br/>
-                Market Cap {data.summaryDetail.marketCap.fmt}</h1>
-            
-            <h2 className={styles.h2}>Summary  <br/>{data.summaryProfile.longBusinessSummary}</h2>
+
+            <h1 className={styles.h1}>{data.quoteType.longName} ({data.quoteType.symbol}) <br />
+                ${data.price.regularMarketPrice.raw} USD <span className={changeClass}>{(data.price.regularMarketChangePercent.raw * 100).toFixed(2)}% </span><br />
+                Forward P/E {data.defaultKeyStatistics.forwardPE.raw.toFixed(2)}<br />
+                Div. Yield {data.summaryDetail.dividendYield.fmt}<br />
+                Market Cap {data.summaryDetail.marketCap.fmt}
+            </h1>
+
+            <h2 className={styles.h2}>Summary  <br />
+                {showFullSummary ? data.summaryProfile.longBusinessSummary : data.summaryProfile.longBusinessSummary.substring(0, 200)}
+               
+            </h2>
+            <button style={{color: "#4d94ff"}} onClick={handleShowMoreClick}>{showFullSummary ? "Show Less" : "Show More"}</button>
         </header>
 
     </div>
