@@ -1,0 +1,14 @@
+.stats{
+    display: flex;
+  }
+
+  .children{
+    margin-top: 10px;
+    margin-right: 10px; /* adjust as needed */
+    border: 2px solid #2b2b2b;
+    border-radius: 5px;
+    width: 33%;
+    height: 20vh;
+    padding-top: 10px;
+    padding-left: 10px;
+  }

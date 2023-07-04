@@ -3,6 +3,7 @@ import { useState } from "react";
 import styles from './SignUpForm.module.css';
 import Button from '@mui/base/Button';
 import FormInput from "./CustomInput";
+import Link from "next/link";
 export default function SignUp() {
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
@@ -25,7 +26,10 @@ export default function SignUp() {
         value={password}
         onChange={(e) => setPassword(e.target.value)}
       />
-      <Button className= {styles.submit} onClick={handleButtonClick}>Get Input Values</Button>
+      <Button className= {styles.submit} onClick={handleButtonClick}>Sign Up</Button>
+      <br />
+      Already have an account?
+      <Link className={styles.link} href="/login" >Login here </Link>
     </div>
   )
 }

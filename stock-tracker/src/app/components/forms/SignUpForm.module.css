@@ -22,6 +22,7 @@
 
 .submit{
     margin-top: 2rem;
+    width: 20%;
     padding: 10px;
     border-radius: 12px;
     border: 1px solid;
@@ -31,8 +32,21 @@
     font-weight: 700;
     cursor: pointer;
     transition: all 0.3s ease;
+
 }
 .submit:hover{
     background-color: #00ffbb;
     box-shadow: 0px 2px 24px #03ad80;
+}
+
+.link{
+    margin-top: 0.2rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #00ffbb;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.link:hover{
+    color: #03ad80;
 }

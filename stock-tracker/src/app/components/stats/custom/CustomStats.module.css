@@ -1,0 +1,20 @@
+.custom_stats_container{
+    margin-top: 10px;
+    margin-right: 10px; /* adjust as needed */
+    border: 2px solid #2b2b2b;
+    border-radius: 5px;
+    width: 33%;
+    height: 20vh;
+    padding-top: 10px;
+    padding-left: 10px;
+  }
+
+
+  .title{
+    text-align: center;
+    font-size: 1.25em;
+    font-weight: bold;
+  }
+  .custom_stats_container:hover {
+    background-color: #2b2b2b; /* Change this to the color you want */
+  }
