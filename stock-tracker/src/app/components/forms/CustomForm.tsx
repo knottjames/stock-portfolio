@@ -35,8 +35,17 @@ export default function CustomForm({ title, handleSubmit }: CustomFormProps)  {
       />
       <Button className= {styles.submit} onClick={handleButtonClick}>Sign Up</Button>
       <br />
-      Already have an account?
-      <Link className={styles.link} href="/login" >Login here </Link>
+      {title === "Sign Up" ? (
+        <>
+          Already have an account? 
+          <Link className={styles.link} href="/login" >Login here </Link>
+        </>
+      ) : (
+        <>
+          Need an account? 
+          <Link className={styles.link} href="/signup" >Sign Up here </Link>
+        </>
+      )}
     </div>
   )
 }
