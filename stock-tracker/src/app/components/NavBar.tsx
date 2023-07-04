@@ -18,6 +18,7 @@ export default function NavBar() {
   };
 
   const auth = getAuth(firebaseApp);
+  useEffect(() => {
   onAuthStateChanged(auth, (user) => {
     if (user) {
       setSignedIn(true);
@@ -26,6 +27,7 @@ export default function NavBar() {
     }
   }
   )
+}, [])
 
   const handleLogOut = () => {
     signOut(auth).then(() => {
