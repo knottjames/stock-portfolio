@@ -7,7 +7,7 @@ export default function Home() {
 
 
       <div>
-        <text>hello</text>
+        hello
        
       </div>
       

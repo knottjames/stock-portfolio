@@ -5,7 +5,7 @@ import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: process.env.FIREBASE_API_KEY,
+  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
   authDomain: "jibbsy-stock-tracker.firebaseapp.com",
   projectId: "jibbsy-stock-tracker",
   storageBucket: "jibbsy-stock-tracker.appspot.com",

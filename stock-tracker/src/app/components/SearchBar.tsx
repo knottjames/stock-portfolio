@@ -26,8 +26,6 @@ const SearchBar: FC<SearchBarProps> = ({ value, onChange }) => {
   return (
     <form className={styles.form} onSubmit={handleSubmit}>
       <ThemeProvider theme={myTheme}>
-
-
         <TextField className={styles.textField}
           fullWidth
           label="Search Ticker"
