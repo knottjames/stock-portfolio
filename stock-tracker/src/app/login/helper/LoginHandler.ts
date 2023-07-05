@@ -4,7 +4,7 @@ import firebaseApp from "../../../../lib/firebase";
 export default async function LoginHandler(email: string, password: string) {
     const auth = getAuth(firebaseApp);
 
-    signInWithEmailAndPassword(auth, email, password)
+    return signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
         // Signed in 
         const user = userCredential.user;

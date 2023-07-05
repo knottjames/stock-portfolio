@@ -68,12 +68,13 @@
 .h1 {
     /* border: 2px solid #2b2b2b; */
     text-align: center;
-    padding: 10px;
+    padding-top: 10px;
+    padding-bottom: 5px;
     margin: 10px;
     border-radius: 5px;
     border-width: 100%;
     width: 100%;
-    font-size: 1.5em;
+    font-size: 1.75em;
     font-weight: bold;
 }
 
@@ -88,21 +89,53 @@
     width: 100%;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
-    
+
 }
 
-.summaryHeader{
-    font-size: 1.25em;
+.summaryHeader {
+    font-size: 1.5em;
     font-weight: bold;
 }
 
-.summaryDiv{
+.summaryDiv {
 
     align-items: center;
     justify-content: center;
 }
-.h1:hover, .h2:hover {
-    background-color: #2b2b2b; /* Change this to the color you want */
-  }
 
- 
+.h2:hover {
+    background-color: #2b2b2b;
+    /* Change this to the color you want */
+}
+
+.saveLink {
+    font-weight: lighter;
+    font-size: 1.25em;
+    text-decoration: none;
+    color: black;
+    font-size: 2em;
+    font-weight: bold;
+    border: #00ffbb 2px solid;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #00ffbb;
+    padding-bottom: 2px;
+    margin-left: 10px;
+}
+
+.saveLink:hover {
+    color: #00ffbb;
+
+    background-color: black;
+}
+.linkDiv{
+    padding-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}

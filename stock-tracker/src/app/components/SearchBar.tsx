@@ -38,10 +38,11 @@ const SearchBar: FC<SearchBarProps> = ({ value, onChange }) => {
           }}
 
         />
-      </ThemeProvider>
+      
       <IconButton type="submit" aria-label="search">
         <SearchIcon className={styles.searchIcon} />
       </IconButton>
+      </ThemeProvider>
     </form>
   );
 };

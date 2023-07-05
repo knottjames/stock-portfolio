@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import styles from './SearchPage.module.css';
 import StatsBox from "../components/stats/StatsBox";
 import { title } from "process";
+import Link from "next/link";
 export default function SearchPage() {
 
     const searchParams = useSearchParams();
@@ -47,14 +48,14 @@ export default function SearchPage() {
     else {
 
         const changeClass = data.price.regularMarketChangePercent.raw > 0 ? styles.green : styles.red;
-        let titles1: string [] = [`Overview`, `Cash Flow`, `Balance Sheet`]
+        let titles1: string[] = [`Overview`, `Cash Flow`, `Balance Sheet`]
         let titles2: string[] = [`Margins`, `Growth`, `Dividends`]
 
         let overview: string[] = [`P/E Ratio ${data.summaryDetail.trailingPE.fmt}`, `Forward P/E ${data.summaryDetail.forwardPE.fmt}`, `Market Cap $${data.summaryDetail.marketCap.fmt}`, `Price to Sales ${data.summaryDetail.priceToSalesTrailing12Months.fmt}`, `Price to Book ${data.defaultKeyStatistics.priceToBook.fmt}`, `EPS $${data.defaultKeyStatistics.trailingEps.fmt}`]
-        let cashflow: string[] = [`Free Cash Flow $${data.financialData.freeCashflow.fmt}`, `Operating Cash Flow $${data.financialData.operatingCashflow.fmt}` ]
+        let cashflow: string[] = [`Free Cash Flow $${data.financialData.freeCashflow.fmt}`, `Operating Cash Flow $${data.financialData.operatingCashflow.fmt}`]
         let balancesheet: string[] = [`Total Cash $${data.financialData.totalCash.fmt}`, `Total Debt $${data.financialData.totalDebt.fmt}`, `Debt/Equity ${data.financialData.debtToEquity.fmt}`]
-        let margins : string[] =[ `Gross Profit Margin ${data.financialData.grossMargins.fmt}`, `Operating Margin ${data.financialData.operatingMargins.fmt}`, `Profit Margin ${data.financialData.profitMargins.fmt}`	]
-        let growth: string [] = [`Revenue Growth ${data.financialData.revenueGrowth.fmt}`, `EPS Growth ${data.financialData.earningsGrowth.fmt}` , `Quarterly Earnings Growth ${data.defaultKeyStatistics.earningsQuarterlyGrowth.fmt}`, `PEG Ratio ${data.defaultKeyStatistics.pegRatio.fmt}`]
+        let margins: string[] = [`Gross Profit Margin ${data.financialData.grossMargins.fmt}`, `Operating Margin ${data.financialData.operatingMargins.fmt}`, `Profit Margin ${data.financialData.profitMargins.fmt}`]
+        let growth: string[] = [`Revenue Growth ${data.financialData.revenueGrowth.fmt}`, `EPS Growth ${data.financialData.earningsGrowth.fmt}`, `Quarterly Earnings Growth ${data.defaultKeyStatistics.earningsQuarterlyGrowth.fmt}`, `PEG Ratio ${data.defaultKeyStatistics.pegRatio.fmt}`]
         let divbox: string[] = [`Div. Yield ${data.summaryDetail.dividendYield.fmt}`, `Ex. Dividend Date ${data.summaryDetail.exDividendDate.fmt}`, `Dividend Rate ${data.summaryDetail.dividendRate.fmt}`, `Payout Ratio ${data.summaryDetail.payoutRatio.fmt}`]
         let values1: string[][] = [overview, cashflow, balancesheet]
         let values2: string[][] = [margins, growth, divbox]
@@ -66,6 +67,12 @@ export default function SearchPage() {
                         ${data.price.regularMarketPrice.raw} USD <span className={changeClass}>{(data.price.regularMarketChangePercent.raw * 100).toFixed(2)}% </span><br />
 
                     </h1>
+                    <div className={styles.linkDiv}> 
+                    Add to Portfolio   
+                    <Link className={styles.saveLink} href={`/save?query=${ticker}`}>
+                        +
+                    </Link>
+                    </div>
 
                     <h2 className={styles.h2}>
                         <div className={styles.summaryHeader}>
@@ -85,8 +92,8 @@ export default function SearchPage() {
 
 
             </div>
-            <StatsBox titles = {titles1} values = {values1}  />
-            <StatsBox titles = {titles2} values  = {values2} />
+            <StatsBox titles={titles1} values={values1} />
+            <StatsBox titles={titles2} values={values2} />
         </div>
 
     }

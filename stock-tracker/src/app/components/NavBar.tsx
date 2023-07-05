@@ -17,6 +17,10 @@ export default function NavBar() {
     setSearch(event.target.value);
   };
 
+  const saveLastPage = () => {
+    localStorage.setItem('lastPage', window.location.href);
+  }
+
   const auth = getAuth(firebaseApp);
   useEffect(() => {
   onAuthStateChanged(auth, (user) => {
@@ -49,7 +53,7 @@ export default function NavBar() {
 
       <SearchBar value={search} onChange={handleSearchChange} />
 
-      {!signedIn && <Link className={styles.linkSec} href="/signup">
+      {!signedIn && <Link className={styles.linkSec} onClick ={saveLastPage} href="/signup">
         Login/Sign Up
       </Link>}
       {signedIn && <Button className={styles.linkSec} onClick={handleLogOut}>
