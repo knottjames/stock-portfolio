@@ -8,9 +8,9 @@ interface CustomStatProps {
 export default function CustomStat({ title, values }: CustomStatProps) {
     return (
         <div className={styles.custom_stats_container}>
-            <text className= {styles.title}>
+            <a className= {styles.title}>
                 {title}
-            </text>
+            </a>
             {values.map((value, index) => (
                 <div key={index} className={styles.value}>
                     {value}

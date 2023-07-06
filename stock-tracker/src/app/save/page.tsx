@@ -7,11 +7,39 @@ import { getAuth, onAuthStateChanged } from "firebase/auth";
 import firebaseApp from "../../../lib/firebase";
 
 export default function SaveStockPage() {
-        const [loggedIn, setLoggedIn] = useState<boolean| undefined>(undefined);
+        const [loggedIn, setLoggedIn] = useState<boolean | undefined>(undefined);
         const searchParams = useSearchParams();
+        const [shares, setShares] = useState('');
+        const [price, setPrice] = useState('');
         const ticker = searchParams.get('query');
         const router = useRouter();
         const auth = getAuth(firebaseApp);
+        const user = auth.currentUser;
+        const uid = user?.uid;
+        const handleSubmit = async (event: React.FormEvent) => {
+                event.preventDefault()
+                // do something with shares and price
+                console.log(`Shares: ${shares}, Price: ${price}`);
+
+                if (shares !== '' && price !== '' && ticker !== null && uid !== null) {
+
+                        try {
+                                const res = await fetch('/api/portfolio', {
+                                        method: 'POST',
+                                        body: JSON.stringify({ uid, ticker, shares, price }),
+                                });
+                                if (!res.ok) {
+                                        // Handle error
+                                        console.error('Error:', res.statusText);
+                                      } else {
+                                        router.push('/');
+                                      }
+                        }
+                        catch (error) {
+                                console.log(error);
+                        }
+                }
+        };
         useEffect(() => {
                 onAuthStateChanged(auth, (user) => {
                         if (user) {
@@ -25,7 +53,7 @@ export default function SaveStockPage() {
                 )
         }, [])
 
-        if(loggedIn === undefined) {
+        if (loggedIn === undefined) {
                 return null;
         }
 
@@ -34,12 +62,12 @@ export default function SaveStockPage() {
                 router.push('/login');
                 return null;
         }
-                
+
         return (
                 <div className={styles.mainDiv}>
-                        <h1>Save Stock ${ticker!.toUpperCase()}</h1>
+                        <h1 className={styles.header}>Add ${ticker!.toUpperCase()} To Portfolio </h1>
 
-                        <SharesForm />
+                        <SharesForm price={price} setPrice={setPrice} shares={shares} setShares={setShares} handleSubmit={handleSubmit} />
                 </div>
         )
 

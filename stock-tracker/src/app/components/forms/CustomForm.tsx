@@ -10,14 +10,14 @@ interface CustomFormProps {
   handleSubmit: (email: string, password: string) => void; // Define the prop type for the function you want to pass
 }
 
-export default function CustomForm({ title, handleSubmit }: CustomFormProps)  {
+export default function CustomForm({ title, handleSubmit }: CustomFormProps) {
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
 
   const handleButtonClick = () => {
     handleSubmit(email, password);
   };
-  
+
   return (
     <div className={styles.container}>
       <header className={styles.title}>{title}</header>
@@ -33,16 +33,19 @@ export default function CustomForm({ title, handleSubmit }: CustomFormProps)  {
         value={password}
         onChange={(e) => setPassword(e.target.value)}
       />
-      <Button className= {styles.submit} onClick={handleButtonClick}>Sign Up</Button>
-      <br />
+
       {title === "Sign Up" ? (
         <>
-          Already have an account? 
+          <Button className={styles.submit} onClick={handleButtonClick}>Login</Button>
+          <br />
+          Already have an account?
           <Link className={styles.link} href="/login" >Login here </Link>
         </>
       ) : (
         <>
-          Need an account? 
+          <Button className={styles.submit} onClick={handleButtonClick}>Sign Up</Button>
+          <br />
+          Need an account?
           <Link className={styles.link} href="/signup" >Sign Up here </Link>
         </>
       )}

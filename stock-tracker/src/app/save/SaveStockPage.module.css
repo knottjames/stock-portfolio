@@ -6,3 +6,9 @@
     height: 90vh;
     
 }
+
+.header{
+    margin: 20px;
+    font-size: 2em;
+    font-weight: bold;
+}
