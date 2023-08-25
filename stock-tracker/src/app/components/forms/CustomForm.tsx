@@ -26,24 +26,26 @@ export default function CustomForm({ title, handleSubmit }: CustomFormProps) {
         placeholder="Email"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
+        type = "text"
       />
       <FormInput
         className={styles.inputs}
         placeholder="Password"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
+        type = "password"
       />
 
       {title === "Sign Up" ? (
         <>
-          <Button className={styles.submit} onClick={handleButtonClick}>Login</Button>
+          <Button className={styles.submit} onClick={handleButtonClick}>Sign Up</Button>
           <br />
           Already have an account?
           <Link className={styles.link} href="/login" >Login here </Link>
         </>
       ) : (
         <>
-          <Button className={styles.submit} onClick={handleButtonClick}>Sign Up</Button>
+          <Button className={styles.submit} onClick={handleButtonClick}>Login</Button>
           <br />
           Need an account?
           <Link className={styles.link} href="/signup" >Sign Up here </Link>

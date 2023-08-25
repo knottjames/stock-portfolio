@@ -1,24 +1,11 @@
 import * as React from 'react';
-import Input from '@mui/base/Input';
+import OutlinedInput from '@mui/material/OutlinedInput';
+import InputAdornment from '@mui/material/InputAdornment';
+import IconButton from '@mui/material/IconButton';
+import Visibility from '@mui/icons-material/Visibility';
+import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import { styled } from '@mui/system';
 
-const CustomInput = React.forwardRef(function CustomInput(
-  props: React.InputHTMLAttributes<HTMLInputElement>,
-  ref: React.ForwardedRef<HTMLDivElement>,
-) {
-  const { className, ...other } = props;
-  return <Input slots={{ input: StyledInputElement }} className={className} {...props} ref={ref} />;
-});
-interface FormInputProps {
-  placeholder: string;
-  className?: string;
-  value: string;
-  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
-}
-
-export default function FormInput({placeholder, className, value, onChange}: FormInputProps) {
-  return <CustomInput className={className} aria-label="Demo input" placeholder={placeholder} value={value} onChange={onChange} />;
-}
 const grey = {
   50: '#f6f8fa',
   100: '#eaeef2',
@@ -31,15 +18,14 @@ const grey = {
   800: '#32383f',
   900: '#24292f',
 };
-
-const StyledInputElement = styled('input')(
+const StyledInput = styled(OutlinedInput)(
   ({ theme }) => `
   width: 320px;
   font-family: IBM Plex Sans, sans-serif;
   font-size: 0.875rem;
   font-weight: 400;
   line-height: 1.5;
-  padding: 12px;
+
   border-radius: 12px;
   color: ${theme.palette.mode === 'dark' ? grey[300] : grey[900]};
   background: ${theme.palette.mode === 'dark' ? grey[900] : '#fff'};
@@ -61,3 +47,42 @@ const StyledInputElement = styled('input')(
   }
 `,
 );
+
+interface FormInputProps {
+  placeholder: string;
+  className?: string;
+  value: string;
+  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  type?: 'text' | 'password';
+}
+
+export default function FormInput({ placeholder, className, value, onChange, type }: FormInputProps) {
+  const [showPassword, setShowPassword] = React.useState(false);
+  const handleClickShowPassword = () => setShowPassword((show) => !show);
+  const handleMouseDownPassword = (event: React.MouseEvent<HTMLButtonElement>) => event.preventDefault();
+
+  const renderToggleButton = type === 'password' && (
+    <InputAdornment position="end">
+      <IconButton
+        aria-label="toggle password visibility"
+        onClick={handleClickShowPassword}
+        onMouseDown={handleMouseDownPassword}
+        edge="end"
+      >
+        {showPassword ? <VisibilityOff /> : <Visibility />}
+      </IconButton>
+    </InputAdornment>
+  );
+
+  return (
+    <StyledInput
+      className={className}
+      type={showPassword ? 'text' : type}
+      endAdornment={renderToggleButton}
+      aria-label="Demo input"
+      placeholder={placeholder}
+      value={value}
+      onChange={onChange}
+    />
+  );
+}
