@@ -20,6 +20,12 @@
     margin: 8px;
     
 }
+.error {
+    color: red;
+
+    margin-top: 1rem;
+  }
+  
 
 .submit{
     margin-top: 2rem;

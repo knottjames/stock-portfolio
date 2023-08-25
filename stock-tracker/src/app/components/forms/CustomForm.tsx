@@ -7,16 +7,31 @@ import Link from "next/link";
 
 interface CustomFormProps {
   title: string;
-  handleSubmit: (email: string, password: string) => void; // Define the prop type for the function you want to pass
+  handleSubmit: (email: string, password: string) => Promise<string | void>; // Define the prop type for the function you want to pass
 }
 
 export default function CustomForm({ title, handleSubmit }: CustomFormProps) {
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
+  const [errorEmail, setErrorEmail] = useState<boolean>(false);
+  const [errorPassword, setErrorPassword] = useState<boolean>(false);
+  const [errorMessageEmail, setErrorMessageEmail] = useState<string>(""); 
+  const [errorMessagePassword, setErrorMessagePassword] = useState<string>("");
+  const handleButtonClick = async () => {
+    const errorMessage = await handleSubmit(email, password);
+    if (errorMessage) {
+      if(errorMessage.toLowerCase().includes("email")){
+        setErrorEmail(true);
+        setErrorMessageEmail(errorMessage.replace("Firebase: ", ""));
+        setErrorPassword(false);
+    }else if (errorMessage.toLowerCase().includes("password")){
+        setErrorPassword(true);
+        setErrorMessagePassword(errorMessage.replace("Firebase: ", ""));
+        setErrorEmail(false);
+    }
 
-  const handleButtonClick = () => {
-    handleSubmit(email, password);
-  };
+  }
+};
 
   return (
     <div className={styles.container}>
@@ -26,15 +41,21 @@ export default function CustomForm({ title, handleSubmit }: CustomFormProps) {
         placeholder="Email"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
-        type = "text"
+        error={errorEmail}
+        type="text"
       />
       <FormInput
         className={styles.inputs}
         placeholder="Password"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
-        type = "password"
+        error={errorPassword}
+        type="password"
       />
+
+
+      {errorEmail && <div className={styles.error}>{errorMessageEmail}</div>}
+      {errorPassword && <div className={styles.error}>{errorMessagePassword}</div>}
 
       {title === "Sign Up" ? (
         <>

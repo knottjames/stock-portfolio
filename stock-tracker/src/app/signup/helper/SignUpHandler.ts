@@ -1,24 +1,17 @@
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import firebaseApp from "../../../../lib/firebase";
 
-export default async function SignUpHandler(email: string, password: string) {
+export default async function SignUpHandler(email: string, password: string) : Promise<string>{
     const auth = getAuth(firebaseApp);
 
-    createUserWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {
-            // Signed in 
-            const user = userCredential.user;
-            // ...
-            console.log(user)
-            console.log("signed up")
-            console.log(user.uid)
-            return true;
-            
-        })
-        .catch((error) => {
-            const errorCode = error.code;
-            const errorMessage = error.message;
-            console.log(errorMessage)
-            return false;
-        });
+    return createUserWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+      // Signed in 
+      const user = userCredential.user;
+      return "signed up"; // You can also return true or any other success message you like
+    })
+    .catch((error) => {
+      const errorMessage = error.message;
+      return errorMessage; // Returning the error message
+    });
 }

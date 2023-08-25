@@ -26,7 +26,7 @@ const StyledInput = styled(OutlinedInput)(
   font-weight: 400;
   line-height: 1.5;
 
-  border-radius: 12px;
+  border-radius: 10px;
   color: ${theme.palette.mode === 'dark' ? grey[300] : grey[900]};
   background: ${theme.palette.mode === 'dark' ? grey[900] : '#fff'};
   border: 1px solid ${theme.palette.mode === 'dark' ? grey[700] : grey[200]};
@@ -54,9 +54,10 @@ interface FormInputProps {
   value: string;
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   type?: 'text' | 'password';
+  error: boolean;
 }
 
-export default function FormInput({ placeholder, className, value, onChange, type }: FormInputProps) {
+export default function FormInput({ placeholder, className, value, onChange, type, error }: FormInputProps) {
   const [showPassword, setShowPassword] = React.useState(false);
   const handleClickShowPassword = () => setShowPassword((show) => !show);
   const handleMouseDownPassword = (event: React.MouseEvent<HTMLButtonElement>) => event.preventDefault();
@@ -82,6 +83,7 @@ export default function FormInput({ placeholder, className, value, onChange, typ
       aria-label="Demo input"
       placeholder={placeholder}
       value={value}
+      error = {error}
       onChange={onChange}
     />
   );

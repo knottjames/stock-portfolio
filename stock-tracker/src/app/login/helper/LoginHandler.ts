@@ -1,25 +1,19 @@
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import firebaseApp from "../../../../lib/firebase";
 
-export default async function LoginHandler(email: string, password: string) {
+export default async function LoginHandler(email: string, password: string): Promise<string> {
     const auth = getAuth(firebaseApp);
 
     return signInWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
-        // Signed in 
-        const user = userCredential.user;
-        // ...
-        console.log(user)
-        console.log("signed in")
-        console.log(user.uid)
-        return true;
-        
-    })
-    .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        console.log(errorMessage)
-        return false;
-    });
+        .then((userCredential) => {
+            // Signed in 
+            const user = userCredential.user;
+            return "logged in";
+
+        })
+        .catch((error) => {
+            const errorMessage = error.message;
+            return errorMessage; // Returning the error message
+        });
 
 }
