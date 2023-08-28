@@ -1,7 +1,7 @@
 'use client'
 import { useState } from "react";
 import styles from './CustomForm.module.css';
-import Button from '@mui/base/Button';
+import Button from '@mui/material/Button';
 import FormInput from "./CustomInput";
 import Link from "next/link";
 
