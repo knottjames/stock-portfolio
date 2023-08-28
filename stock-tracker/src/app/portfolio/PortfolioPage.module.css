@@ -1,0 +1,23 @@
+.grid{
+    display: grid;
+    justify-content: center;
+    grid-gap: 1rem;
+    margin: 1rem;
+    padding: 1rem;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    color: white;
+    box-shadow: 0 0 5px #ccc;
+    width: 60%;
+}
+
+.grid .MuiDataGrid-columnHeader {
+    font-weight: bold !important;
+    font-size: 1.35rem !important;
+}
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}

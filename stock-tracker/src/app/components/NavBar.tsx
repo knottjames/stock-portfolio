@@ -6,7 +6,8 @@ import { ChangeEvent, useEffect, useState } from "react";
 import styles from './NavBar.module.css';
 import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
 import firebaseApp from "../../../lib/firebase";
-import Button from "@mui/base/Button";
+import Button from '@mui/material/Button';
+
 import { useRouter } from "next/navigation";
 
 export default function NavBar() {
@@ -52,13 +53,18 @@ export default function NavBar() {
       </Link>
 
       <SearchBar value={search} onChange={handleSearchChange} />
-
+      <div className={styles.secDiv}>
+      <Link className={styles.linkSec} onClick ={saveLastPage} href="/portfolio">
+        Portfolio
+      </Link>
       {!signedIn && <Link className={styles.linkSec} onClick ={saveLastPage} href="/signup">
         Login/Sign Up
       </Link>}
       {signedIn && <Button className={styles.linkSec} onClick={handleLogOut}>
         Logout
         </Button>}
+      </div>
+      
 
     </nav>
   )

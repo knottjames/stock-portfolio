@@ -29,6 +29,11 @@
   font-weight: bold;
 }
 
+
+.secDiv{
+  display: flex;
+}
+
 .linkSec {
   display: flex;
   /* New */
@@ -50,8 +55,9 @@
 
 }
 
-.link:hover {
-  color: #707070;
+.linkSec:hover {
+
   /* Change color on hover */
   border-color: #888;
+
 }
