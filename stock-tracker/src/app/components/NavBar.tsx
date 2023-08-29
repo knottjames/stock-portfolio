@@ -38,7 +38,6 @@ export default function NavBar() {
     signOut(auth).then(() => {
       console.log('User signed out');
 
-      router.push("/");
     }).catch((error) => {
       // An error occurred
       console.log(error);
@@ -60,9 +59,9 @@ export default function NavBar() {
       {!signedIn && <Link className={styles.linkSec} onClick ={saveLastPage} href="/signup">
         Login/Sign Up
       </Link>}
-      {signedIn && <Button className={styles.linkSec} onClick={handleLogOut}>
+      {signedIn && <Link className={styles.linkSec} onClick={handleLogOut} href = "/">
         Logout
-        </Button>}
+        </Link>}
       </div>
       
 

@@ -16,5 +16,11 @@
     font-weight: bold;
   }
   .custom_stats_container:hover {
-    background-color: #2b2b2b; /* Change this to the color you want */
+    background-color: aliceblue; /* Change this to the color you want */
+  }
+
+  @media (prefers-color-scheme: dark) { 
+    .custom_stats_container:hover {
+      background-color: #2b2b2b; /* Change this to the color you want */
+    }
   }

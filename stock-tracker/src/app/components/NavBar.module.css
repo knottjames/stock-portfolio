@@ -4,8 +4,9 @@
   align-items: center;
   padding: 15px;
   white-space: nowrap;
-  background-color: #2b2b2b;
+
 }
+
 
 .linkMain {
   display: flex;
@@ -21,8 +22,8 @@
   /* Increased padding to make the link bigger */
   font-size: 20px;
   /* Increased font size to make the text bigger */
-  background-color: #00ffbb;
-  border: 2px solid #00ffbb;
+  background-color: #00c3ff;
+  border: 2px solid #00c3ff;
 
   border-radius: 30px;
   transition: color 0.3s ease, border-color 0.3s ease;
@@ -43,21 +44,32 @@
   /* New */
   margin: 0 15px;
   text-decoration: none;
-  color: #b3b3b3;
+  color: #2b2b2b;
   padding: 12px;
   /* Increased padding to make the link bigger */
   font-size: 20px;
   /* Increased font size to make the text bigger */
-  background-color: #2b2b2b;
-  border: 2px solid #2b2b2b;
+  background-color: aliceblue;
+  border: 2px solid aliceblue;
   border-radius: 30px;
   transition: color 0.3s ease, border-color 0.3s ease;
 
 }
 
+@media( prefers-scheme-color: dark) {
+  .linkSec{
+    background-color: #2b2b2b;
+    border: 2px solid #2b2b2b;
+  }
+  .linkSec:hover {
+    color: #b3b3b3;
+  }
+}
+
 .linkSec:hover {
 
   /* Change color on hover */
-  border-color: #888;
+  border-color: #b3b3b3;
+  background-color: #b3b3b3;
 
 }

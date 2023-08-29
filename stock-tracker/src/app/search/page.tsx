@@ -83,7 +83,7 @@ export default function SearchPage() {
                         </div>
 
                     </h2>
-                    <button style={{ color: "#00ffbb" }} onClick={handleShowMoreClick}>{showFullSummary ? "Show Less" : "Show More"}</button>
+                    <button style={{ color: "#00c3ff" }} onClick={handleShowMoreClick}>{showFullSummary ? "Show Less" : "Show More"}</button>
                 </header>
 
 

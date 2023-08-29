@@ -30,15 +30,15 @@ const StyledInput = styled(OutlinedInput)(
   color: ${theme.palette.mode === 'dark' ? grey[300] : grey[900]};
   background: ${theme.palette.mode === 'dark' ? grey[900] : '#fff'};
   border: 1px solid ${theme.palette.mode === 'dark' ? grey[700] : grey[200]};
-  box-shadow: 0px 2px 24px #00ffbb;
+  box-shadow: 0px 1px 24px #00c3ff;
 
   &:hover {
-    border-color: #03ad80;
+    border-color: #0197c5;
   }
 
   &:focus {
-    border-color: #00ffbb;
-    box-shadow: 0 0 0 3px #00ffbb;
+    border-color: #00c3ff;
+    box-shadow: 0 0 0 3px #00c3ff;
   }
 
   // firefox
