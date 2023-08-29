@@ -4,20 +4,75 @@
     grid-gap: 1rem;
     margin: 1rem;
     padding: 1rem;
-    border: 1px solid #000000;
-    border-radius: 5px;
+    border: 1px solid ;
     color: white;
-    box-shadow: 0 0 5px #ccc;
-    width: 60%;
+    background-color: #000000;
+    border-radius: 12px;
+ 
+    width: 90%;
+}
+.grid_header{
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+.grid.MuiDataGrid-columnHeaderTitle {
+    font-weight: bold;
+    font-size: 2.5rem;
 }
 
-.grid .MuiDataGrid-columnHeader {
-    font-weight: bold !important;
-    font-size: 1.35rem !important;
+.negativeReturn{
+    color: red;
+    font-weight: bold;
+}
+.positiveReturn{
+    color: green;
+    font-weight: bold;
+}
+.header{
+    padding: 1%;
+    font-weight: bold;
+    font-size: 1.5rem;
 }
 .container{
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+}
+.loader_container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    background: rgba(0, 0, 0, 0.834);
+    z-index: 1;
+}
+
+.loader_container {
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    background: rgba(0, 0, 0, 0.834) url("https://media.giphy.com/media/8agqybiK5LW8qrG3vJ/giphy.gif") center no-repeat;
+    z-index: 1;
+}
+
+.spinner {
+    width: 64px;
+    height: 64px;
+    border: 8px solid;
+    border-color: #3d5af1 transparent #3d5af1 transparent;
+    border-radius: 50%;
+    animation: spin-anim 1.2s linear infinite;
+}
+
+@keyframes spin-anim {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }

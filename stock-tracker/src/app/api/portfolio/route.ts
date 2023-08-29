@@ -18,11 +18,14 @@ export async function POST(req: NextRequest) {
 }
 
 export async function GET(req: NextRequest) {
-  try{
-    const {uid} = await req.json();
-    const data = await getStocks(uid);
-    const res = NextResponse.json(data);
-    return res;
+  try {
+    const url = req.nextUrl;
+    const uid = url.searchParams.get('uid');
+    if (uid !== 'undefined' && uid !== null) {
+      const data = await getStocks(uid);
+      const res = NextResponse.json(data);
+      return res;
+    }
   } catch (error) {
     console.log(error);
     return NextResponse.error();
@@ -34,7 +37,7 @@ async function getStocks(uid: string) {
   const db = client.db('stock');
   const collection = db.collection('portfolios');
 
-  if(!uid) {
+  if (!uid) {
     throw new Error('User not logged in');
   }
   const result = await collection.findOne({ uid });
