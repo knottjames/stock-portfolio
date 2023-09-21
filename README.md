@@ -2,11 +2,13 @@
 
 Stock portfolio tracker web application.  
 
-Users can search up stock tickers to view information on specific stocks.
+Users can search up stock tickers to view financial information on specific stocks.
+
+Users can also add their own portfolios and track their portfolios performance.
 
 ## To be implemented
 
-Display of user portfolios.
+Graphs with useful financial ratios and historical data.
 
 ## Technologies
 
