@@ -13,42 +13,43 @@ export default function PortfolioPage() {
     const auth = getAuth(firebaseApp);
     const user = auth.currentUser;
     const uid = user?.uid;
-    const fetchPortfolio = async () => {
-        if (!uid) {
-            console.error('User is not authenticated!');
-            // You may want to handle this situation differently.
-            setLoading(false);
-            return;
-        }
-        const url = new URL('/api/portfolio', location.origin);
-        url.searchParams.append('uid', uid); // Append uid as a query parameter
-        try {
-            const res = await fetch(url.toString(), {
-                method: 'GET',
-            });
-            if (!res.ok) {
-                throw new Error(res.statusText);
-            }
-            const data = await res.json();
-            console.log("Successful response:", data);  // Log successful response
-            setPortfolioData(data);
     
-        } catch (error) {
-            console.error('Failed to fetch portfolio:', error);
-        } finally {
-            console.log("End of fetchPortfolio function."); // Log end
-            setLoading(false);
-            console.log(loading)
-            console.log(portfolioData)
-        }
-    };
 
 
 
     useEffect(() => {
+        const fetchPortfolio = async () => {
+            if (!uid) {
+                console.error('User is not authenticated!');
+                // You may want to handle this situation differently.
+                setLoading(false);
+                return;
+            }
+            const url = new URL('/api/portfolio', location.origin);
+            url.searchParams.append('uid', uid); // Append uid as a query parameter
+            try {
+                const res = await fetch(url.toString(), {
+                    method: 'GET',
+                });
+                if (!res.ok) {
+                    throw new Error(res.statusText);
+                }
+                const data = await res.json();
+                console.log("Successful response:", data);  // Log successful response
+                setPortfolioData(data);
+        
+            } catch (error) {
+                console.error('Failed to fetch portfolio:', error);
+            } finally {
+                console.log("End of fetchPortfolio function."); // Log end
+                setLoading(false);
+                console.log(loading)
+                console.log(portfolioData)
+            }
+        } ;
         fetchPortfolio();
 
-    }, []);
+    }, [loading, portfolioData, uid]);
 
 
     // change title to portfolio
