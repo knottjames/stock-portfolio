@@ -1,14 +1,14 @@
 .grid{
     display: grid;
     justify-content: center;
-    grid-gap: 1rem;
     margin: 1rem;
     padding: 1rem;
+
     border: 1px solid ;
     
     border-radius: 12px;
     
-    width: 90%;
+    width: 80%;
 }
 
 @media (prefers-color-scheme: dark){
@@ -19,9 +19,12 @@
     .MuiPaginationItem-root {
         color: white !important; /* Change to dark mode's desired color */
     }
+    .grid_header{
+        color: aliceblue;
+    }
 }
 .grid_header{
-    color:white;
+    color:black;
     font-weight: bold;
     font-size: 1.2rem;
 }
