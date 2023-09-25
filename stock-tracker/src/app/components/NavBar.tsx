@@ -32,7 +32,7 @@ export default function NavBar() {
     }
   }
   )
-}, [])
+}, [auth])
 
   const handleLogOut = () => {
     signOut(auth).then(() => {

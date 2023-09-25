@@ -13,42 +13,43 @@ export default function PortfolioPage() {
     const auth = getAuth(firebaseApp);
     const user = auth.currentUser;
     const uid = user?.uid;
-    const fetchPortfolio = async () => {
-        if (!uid) {
-            console.error('User is not authenticated!');
-            // You may want to handle this situation differently.
-            setLoading(false);
-            return;
-        }
-        const url = new URL('/api/portfolio', location.origin);
-        url.searchParams.append('uid', uid); // Append uid as a query parameter
-        try {
-            const res = await fetch(url.toString(), {
-                method: 'GET',
-            });
-            if (!res.ok) {
-                throw new Error(res.statusText);
-            }
-            const data = await res.json();
-            console.log("Successful response:", data);  // Log successful response
-            setPortfolioData(data);
     
-        } catch (error) {
-            console.error('Failed to fetch portfolio:', error);
-        } finally {
-            console.log("End of fetchPortfolio function."); // Log end
-            setLoading(false);
-            console.log(loading)
-            console.log(portfolioData)
-        }
-    };
 
 
 
     useEffect(() => {
+        const fetchPortfolio = async () => {
+            if (!uid) {
+                console.error('User is not authenticated!');
+                // You may want to handle this situation differently.
+                setLoading(false);
+                return;
+            }
+            const url = new URL('/api/portfolio', location.origin);
+            url.searchParams.append('uid', uid); // Append uid as a query parameter
+            try {
+                const res = await fetch(url.toString(), {
+                    method: 'GET',
+                });
+                if (!res.ok) {
+                    throw new Error(res.statusText);
+                }
+                const data = await res.json();
+                console.log("Successful response:", data);  // Log successful response
+                setPortfolioData(data);
+        
+            } catch (error) {
+                console.error('Failed to fetch portfolio:', error);
+            } finally {
+                console.log("End of fetchPortfolio function."); // Log end
+                setLoading(false);
+                console.log(loading)
+                console.log(portfolioData)
+            }
+        } ;
         fetchPortfolio();
 
-    }, []);
+    }, [loading, portfolioData, uid]);
 
 
     // change title to portfolio
@@ -66,14 +67,14 @@ export default function PortfolioPage() {
 
         const columns: GridColDef[] = [
             {
-                field: 'ticker', headerName: 'Ticker', width: 200, headerClassName: styles.grid_header,
+                field: 'ticker', headerName: 'Ticker', width: 150, headerClassName: styles.grid_header,
             },
-            { field: 'noShares', headerName: 'Shares', width: 200, headerClassName: styles.grid_header, },
-            { field: 'avgPrice', headerName: 'Average Price ($)', width: 200, headerClassName: styles.grid_header, },
-            { field: 'currentPrice', headerName: 'Current Price ($)', width: 200, headerClassName: styles.grid_header, },
-            { field: 'totalInvested', headerName: 'Total Invested ($)', width: 200, headerClassName: styles.grid_header, },
-            { field: 'totalValue', headerName: 'Total Value ($)', width: 200, headerClassName: styles.grid_header, },
-            { field: 'totalReturn', headerName: 'Total Return ($)', width: 200, headerClassName: styles.grid_header, 
+            { field: 'noShares', headerName: 'Shares', width: 150, headerClassName: styles.grid_header, },
+            { field: 'avgPrice', headerName: 'Average Price', width: 150, headerClassName: styles.grid_header, },
+            { field: 'currentPrice', headerName: 'Current Price', width: 150, headerClassName: styles.grid_header, },
+            { field: 'totalInvested', headerName: 'Total Invested', width: 150, headerClassName: styles.grid_header, },
+            { field: 'totalValue', headerName: 'Total Value', width: 150, headerClassName: styles.grid_header, },
+            { field: 'totalReturn', headerName: 'Total Return', width: 150, headerClassName: styles.grid_header, 
             cellClassName: (params: GridCellParams) => {
                 const value = parseFloat(params.value as string); // assuming value is a string like "10.23%" because of the earlier .toFixed(2) + "%" logic
                 if (value > 0) {
@@ -84,7 +85,7 @@ export default function PortfolioPage() {
                 return '';  // default, no special style
             }},
             {
-                field: 'totalReturnPercent', headerName: 'Percentage Return %', width: 200, headerClassName: styles.grid_header,
+                field: 'totalReturnPercent', headerName: 'Return %', width: 150, headerClassName: styles.grid_header,
                 cellClassName: (params: GridCellParams) => {
                     const value = parseFloat(params.value as string); // assuming value is a string like "10.23%" because of the earlier .toFixed(2) + "%" logic
                     if (value > 0) {
@@ -104,12 +105,12 @@ export default function PortfolioPage() {
         let rows = portfolioData.stocks.map((stock: { ticker: string; shares: number; price: number; }) => ({
             id: generateRowId(),
             ticker: "$" + stock.ticker.toUpperCase(),
-            noShares: stock.shares,
-            avgPrice: stock.price,
-            currentPrice: 500,
-            totalInvested: stock.shares * stock.price,
-            totalValue: stock.shares * 500,
-            totalReturn: stock.shares * 500 - stock.shares * stock.price,
+            noShares: stock.shares.toFixed(2),
+            avgPrice:  "$" + stock.price.toFixed(2),
+            currentPrice: "$" + 500.00,
+            totalInvested: "$" + (stock.shares * stock.price).toFixed(2),
+            totalValue: "$" + (stock.shares * 500).toFixed(2),
+            totalReturn: "$" + (stock.shares * 500 - stock.shares * stock.price).toFixed(2),
             totalReturnPercent: (((stock.shares * 500 - stock.shares * stock.price) / (stock.shares * stock.price)) * 100).toFixed(2) + "%",
         }));
 

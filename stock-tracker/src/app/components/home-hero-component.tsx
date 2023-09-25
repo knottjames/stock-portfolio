@@ -13,8 +13,8 @@ export default function HomeHeroComponent() {
                 Portfolio Tracker
               </h1>
 
-              <p className="max-w-[600px] text-zinc-500 md:text-xl dark:text-zinc-100 mx-auto">
-                To begin searching stocks, type a ticker symbol into the search bar above. E.g. "AAPL" for Apple.<br></br>
+              <p className="max-w-[850px] text-zinc-500 md:text-xl dark:text-zinc-100 mx-auto">
+                To begin searching stocks, type a ticker symbol into the search bar above. E.g. &quot;AAPL&quot; for Apple.<br></br>
                 Currently, the app only supports US stocks and must be searched using their ticker symbol.<br></br>
               </p>
             </div>
