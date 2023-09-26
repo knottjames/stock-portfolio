@@ -50,7 +50,7 @@ export default function SharesForm({shares, setShares, price, setPrice, handleSu
                     placeholder="E.g. 100.50"
                 />
             </div>
-            <button type="submit" style={{ color: "#00ffbb" }}>Submit</button>
+            <button type="submit" style={{ color: "#00c3ff" }}>Submit</button>
         </form>
     );
 };

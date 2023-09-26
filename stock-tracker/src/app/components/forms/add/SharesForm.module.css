@@ -5,15 +5,15 @@
      justify-content: center; 
     height: 60vh;
     width: 70vh;
-    background-color: #2b2b2b;
+
     border-radius: 12px;
-    box-shadow: 0px 2px 24px #00ffbb;    
+    box-shadow: 0px 2px 24px #00c3ff;    
 }
 
 .input{
     color: black;
     border-radius: 12px;
-    box-shadow: 0px 2px 24px #00ffbb;    
+    box-shadow: 0px 2px 24px #00c3ff;    
     margin: 10px;
     padding: 10px;
 }
