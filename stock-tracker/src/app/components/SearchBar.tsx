@@ -52,9 +52,7 @@ const SearchBar: FC<SearchBarProps> = ({ value, onChange }) => {
           focused
           value={value}
           onChange={onChange}
-          InputProps={{
-            style: darkMode ? { color: 'white' } : {color: 'black'},
-          }}
+          
 
         />
       

@@ -16,10 +16,4 @@
 
 }
 
-@media (prefers-color-scheme: dark) {
-  .nav {
-    color: #2b2b2b;  /* Dark mode color */
-  }
-}
-
   
