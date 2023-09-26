@@ -27,7 +27,7 @@ const fetchPortfolio = async () => {
     const auth = getAuth(firebaseApp);
     const user = auth.currentUser;
     const uid = user?.uid;
-    await new Promise(resolve => setTimeout(resolve, 500))
+    await new Promise(resolve => setTimeout(resolve, 1000))
     if (!uid) {
         console.error('User is not authenticated!');
         return;
