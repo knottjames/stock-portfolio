@@ -22,7 +22,6 @@ export default function SearchPage() {
             try {
                 const response = await fetch(`/api/stocks?query=${ticker}`);
                 const json = await response.json();
-                console.log(json);
                 setData(json);
                 setLoading(false);
             } catch (err) {

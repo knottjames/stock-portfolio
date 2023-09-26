@@ -1,6 +1,5 @@
 // /pages/api/stocks.js
-import firebaseApp from '../../../../lib/firebase';
-import { getAuth } from 'firebase/auth';
+
 import clientPromise from '../../../../lib/mongdb';
 import { NextRequest, NextResponse } from 'next/server';
 export async function POST(req: NextRequest) {
@@ -50,7 +49,6 @@ async function insertStock(uid: string, ticker: string, shares: number, price: n
   const collection = db.collection('portfolios');
 
 
-  console.log(uid);
   if (!uid) {
     throw new Error('User not logged in');
   }
