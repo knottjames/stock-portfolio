@@ -1,4 +1,4 @@
-'use client'
+
 import { stepLabelClasses } from '@mui/material';
 import styles from './HomePage.module.css';
 import HomeHeroComponent from './components/home-hero-component';

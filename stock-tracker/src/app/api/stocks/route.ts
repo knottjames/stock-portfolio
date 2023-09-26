@@ -9,7 +9,6 @@ async function fetchStocks(ticker: string) {
             'X-RapidAPI-Host': 'apidojo-yahoo-finance-v1.p.rapidapi.com'
         }
     })
-    console.log(process.env.NEXT_PUBLIC_RAPIDAPI_KEY)
     const result = await response.json()
     return result
 

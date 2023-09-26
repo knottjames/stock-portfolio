@@ -31,9 +31,9 @@ export default function SaveStockPage() {
                                 if (!res.ok) {
                                         // Handle error
                                         console.error('Error:', res.statusText);
-                                      } else {
+                                } else {
                                         router.push('/');
-                                      }
+                                }
                         }
                         catch (error) {
                                 console.log(error);
@@ -51,7 +51,7 @@ export default function SaveStockPage() {
                         }
                 }
                 )
-        }, [auth,router,ticker])
+        }, [auth, router, ticker])
 
         if (loggedIn === undefined) {
                 return null;
