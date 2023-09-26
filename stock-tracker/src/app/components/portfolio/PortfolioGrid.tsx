@@ -3,6 +3,7 @@ import { getAuth } from "firebase/auth";
 import firebaseApp from "../../../../lib/firebase";
 import styles from './PortfolioGrid.module.css';
 import { DataGrid, GridColDef, GridCellParams } from '@mui/x-data-grid';
+import router from "next/router";
 
 
 const fetchPrices = async (tickerString: string) => {
@@ -58,7 +59,9 @@ export default async function PortfolioGrid() {
         const tickerString = tickers.join(',');
         console.log("Ticker String:" + tickerString);
         currentPrices = await fetchPrices(tickerString);
-    }
+    
+
+   
     const columns: GridColDef[] = [
         {
             field: 'ticker', headerName: 'Ticker', width: 150, headerClassName: styles.grid_header,
@@ -114,8 +117,12 @@ export default async function PortfolioGrid() {
         totalReturn: "$" + (stock.shares * 500 - stock.shares * stock.price).toFixed(2),
         totalReturnPercent: (((stock.shares * 500 - stock.shares * stock.price) / (stock.shares * stock.price)) * 100).toFixed(2) + "%",
     }));
-
+    
     return (<DataGrid className={styles.grid} columns={columns} rows={rows} autoHeight={true} />)
+}
+else{
+    return <div> Please Login</div>
+}
 
 
 }
