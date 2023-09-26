@@ -4,6 +4,7 @@ import PortfolioGrid from '../components/portfolio/PortfolioGrid';
 import styles from './PortfolioPage.module.css';
 import Loading from './loading';
 
+
 export default function PortfolioPage() {
 
     return <div className={styles.container}>
@@ -14,3 +15,4 @@ export default function PortfolioPage() {
 
     </div>
 }
+
