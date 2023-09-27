@@ -12,12 +12,14 @@ Users can also add their own portfolios and track their portfolios performance.
 ![Portfolio](/images/portfolio.png)
 ## To be implemented
 
-Graphs with useful financial ratios and historical data.
+- More Portfolio insights.
+- Graphs with useful financial ratios and historical data.
 
 ## Technologies
 
 - TypeScript
 - React
+- NextJS
 - Vercel
-- MongoDB
-- Firebase
+- MongoDB (Data Storage)
+- Firebase (Authentication)
