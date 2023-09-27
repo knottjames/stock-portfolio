@@ -106,16 +106,7 @@
     background-color: aliceblue;
     /* Change this to the color you want */
 }
-@media (prefers-color-scheme: dark) {
-    .h2:hover {
-      background-color: #2b2b2b;  /* Dark mode color */
-    }
-    .saveLink:hover {
-        color: #00c3ff;
-    
-        background-color: black;
-    }
-  }
+
   
 
 .saveLink {
