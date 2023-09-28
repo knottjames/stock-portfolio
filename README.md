@@ -1,6 +1,12 @@
 # stock-portfolio
-
-## Stock portfolio tracker web application.  
+## Technologies
+- TypeScript
+- React
+- NextJS
+- Vercel
+- MongoDB (Data Storage)
+- Firebase (Authentication)
+## Stock Portfolio Tracker Web Application. 
 ![Home](/images/home.png)
 ## Search
 Users can search up stock tickers to view financial information on specific stocks.
@@ -15,11 +21,4 @@ Users can also add their own portfolios and track their portfolios performance.
 - More Portfolio insights.
 - Graphs with useful financial ratios and historical data.
 
-## Technologies
 
-- TypeScript
-- React
-- NextJS
-- Vercel
-- MongoDB (Data Storage)
-- Firebase (Authentication)
