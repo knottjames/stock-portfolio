@@ -9,9 +9,12 @@ export default function PortfolioPage() {
 
     return <div className={styles.container}>
         <h1 className={styles.header}>Your Portfolio</h1>
-        <Suspense fallback={<Loading />}>
-            <PortfolioGrid />
-        </Suspense>
+        <div className={styles.gridContainer}>
+
+            <Suspense fallback={<Loading />}>
+                <PortfolioGrid />
+            </Suspense>
+        </div>
 
     </div>
 }

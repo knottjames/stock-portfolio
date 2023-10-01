@@ -10,3 +10,10 @@
     align-items: center;
     flex-direction: column;
 }
+.gridContainer {
+    display: grid;
+    place-items: center; /* This shorthand centers both vertically and horizontally */
+    height: 80vh; /* Full viewport height */
+    width: 80vw; 
+}
+
