@@ -1,7 +1,7 @@
 import './globals.css'
 import {  Urbanist } from 'next/font/google'
 import NavBar from './components/NavBar';
-
+import {Analytics} from '@vercel/analytics/react'
 
 const manrope = Urbanist({ subsets: ['latin'],
  })
@@ -22,6 +22,7 @@ export default function RootLayout({
         <main className={manrope.className}>
           <NavBar/>
           {children}
+          <Analytics />
         </main>
       </body>
     </html>
