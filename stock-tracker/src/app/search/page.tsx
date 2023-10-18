@@ -78,7 +78,7 @@ export default function SearchPage() {
                             Summary
                         </div>
                         <div className={styles.summaryDiv}>
-                            {showFullSummary ? data.summaryProfile.longBusinessSummary : data.summaryProfile.longBusinessSummary.substring(0, 200)}
+                            {showFullSummary ? data.summaryProfile.longBusinessSummary : data.summaryProfile.longBusinessSummary.substring(0, 500)+" ..."}
                         </div>
 
                     </h2>
