@@ -17,13 +17,12 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className={manrope.className}>
        <body>
-        <main className={manrope.className}>
           <NavBar/>
           {children}
           <Analytics />
-        </main>
+
       </body>
     </html>
   )

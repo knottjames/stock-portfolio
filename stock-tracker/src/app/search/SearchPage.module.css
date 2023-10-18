@@ -116,20 +116,22 @@
     color: aliceblue;
     font-size: 2em;
     font-weight: bold;
-    border: #00c3ff 2px solid;
+    border: #b3b3b3;
     border-radius: 50%;
     width: 30px;
     height: 30px;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #00c3ff;
+    background-color: #b3b3b3;
     padding-bottom: 2px;
     margin-left: 10px;
+    transition: color 0.4s ease, border-color 0.4s ease;
+    
 }
 
 .saveLink:hover {
-    color: #00c3ff;
+    color: #b3b3b3;
     border-color: aliceblue;
 
     background-color: aliceblue;
