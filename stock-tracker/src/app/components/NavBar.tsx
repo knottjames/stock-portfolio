@@ -6,14 +6,12 @@ import { ChangeEvent, useEffect, useState } from "react";
 import styles from './NavBar.module.css';
 import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
 import firebaseApp from "../../../lib/firebase";
-import Button from '@mui/material/Button';
 
 import { useRouter } from "next/navigation";
 
 export default function NavBar() {
   const [search, setSearch] = useState<string>('');
   const [signedIn, setSignedIn] = useState<boolean>(false);
-  const router = useRouter();
   const handleSearchChange = (event: ChangeEvent<HTMLInputElement>) => {
     setSearch(event.target.value);
   };
